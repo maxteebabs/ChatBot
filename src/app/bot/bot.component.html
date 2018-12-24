@@ -1,0 +1,16 @@
+<h1>My Bot</h1>
+
+<div class="chat_container">
+    <div class="chat_history" id="chat_history">
+        <ng-container *ngFor="let message of messages | async">
+            <div class="message" [ngClass] = "{ 
+                'bot' : message.sentBy === 'bot', 
+                'user' : message.sentBy === 'user'}">
+                {{ message.message }}
+            </div>
+        </ng-container>
+    </div>
+    <input [(ngModel)]="chatInput" (keyup.enter)="sendMessage()" type="text" placeholder="Please enter you message">
+    <button (click)="sendMessage()">Send</button>
+</div>
+
