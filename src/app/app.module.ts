@@ -1,10 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule  } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { FlightsComponent } from './flights/flights.component';
 import { BotComponent } from './bot/bot.component';
+// import { BotModule } from './bot/bot.module';
 
 import{BotService} from './bot.service';
 

@@ -2,7 +2,7 @@ import { TestBed, inject } from '@angular/core/testing';
 
 import { BotService } from './bot.service';
 
-describe('WakanowBotService', () => {
+describe('BotService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [BotService]

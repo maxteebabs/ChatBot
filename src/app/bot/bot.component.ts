@@ -23,6 +23,7 @@ export class BotComponent implements OnInit {
   sendMessage() {
     this.chat.converse(this.chatInput);
     this.chatInput = '';
+    return true;
   }
 
 }

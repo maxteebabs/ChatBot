@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { environment } from './../environments/environment';
-import { ApiAiClient } from './../api-ai-javascript';
+import { environment } from '../environments/environment';
+import { ApiAiClient } from '../api-ai-javascript';
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject }   from 'rxjs/BehaviorSubject';
 
@@ -21,16 +21,17 @@ export class BotService {
   converse(msg: string) {
     const userMsg = new Message(msg, 'user');
     this.update(userMsg);
-    
+    let status = true;    
     //send request
-    return this.client.textRequest(msg).then((response) =>{
-      console.log(response);
+    this.client.textRequest(msg).then((response) =>{
       const speech = response.result.fulfillment.speech;
       const botSpeech = new Message(speech, 'bot');
       this.update(botSpeech);
     }).catch((error) => {
+        status = false;
         alert(error);
     });
+    return status;
   }
   update(msg : Message) {
     this.conversation.next([msg]);
